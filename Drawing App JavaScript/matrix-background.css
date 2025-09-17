@@ -26,6 +26,7 @@
     radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
 }
 
+body.dark-mode .executive-overlay,
 [data-theme="dark"] .executive-overlay {
   background:
     linear-gradient(45deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.98) 100%),
@@ -46,6 +47,14 @@
     linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
   animation: gridFloat 30s linear infinite;
+}
+
+body.dark-mode .corporate-grid {
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(96, 165, 250, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.03) 1px, transparent 1px);
 }
 
 @keyframes gridFloat {
@@ -85,6 +94,10 @@
 .stream-3 { width: 500px; top: 55%; left: -500px; animation-delay: 6s; }
 .stream-4 { width: 300px; top: 75%; right: -300px; animation-delay: 9s; animation-direction: reverse; }
 
+body.dark-mode .data-stream {
+  background: linear-gradient(90deg, transparent 0%, rgba(96, 165, 250, 0.3) 20%, rgba(96, 165, 250, 0.6) 50%, rgba(96, 165, 250, 0.3) 80%, transparent 100%);
+}
+
 @keyframes streamFlow {
   0% { transform: translateX(0); opacity: 0; }
   10% { opacity: 0.6; }
@@ -94,6 +107,10 @@
 
 /* Corporate Dots Matrix */
 .dots-matrix { position: absolute; width: 100%; height: 100%; background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 2px, transparent 2px); background-size: 60px 60px; animation: dotsShift 40s linear infinite; }
+body.dark-mode .dots-matrix {
+  background-image: radial-gradient(circle, rgba(96, 165, 250, 0.1) 2px, transparent 2px);
+}
+
 @keyframes dotsShift { 0% { transform: translate(0, 0); } 100% { transform: translate(60px, 60px); } }
 
 /* Professional Wave Patterns */
@@ -102,6 +119,10 @@
 .wave-1 { top: 20%; left: 10%; animation-delay: 0s; }
 .wave-2 { bottom: 30%; right: 20%; animation-delay: 7s; }
 .wave-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 14s; }
+
+body.dark-mode .wave-pattern {
+  border: 1px solid rgba(96, 165, 250, 0.1);
+}
 
 @keyframes waveExpand {
   0%, 100% { transform: scale(0.5); opacity: 0; }
@@ -113,6 +134,10 @@
 .watermark-element { position: absolute; font-weight: 800; letter-spacing: 0.3em; opacity: 0.04; color: var(--text-primary); }
 .watermark-1 { top: 12%; left: 8%; font-size: 56px; }
 .watermark-2 { bottom: 10%; right: 12%; font-size: 72px; }
+
+body.dark-mode .watermark-element {
+  color: #e0e0e0;
+}
 
 /* Responsive: hide heavy decorations on small screens */
 @media (max-width: 768px) {

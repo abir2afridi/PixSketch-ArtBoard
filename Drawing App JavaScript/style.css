@@ -1,5 +1,14 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* CSS Variables for Matrix Background */
+:root {
+  --accent-primary: #4A98F7;
+  --accent-secondary: #E02020;
+  --success: #6DD400;
+  --warning: #FFB800;
+  --text-primary: #333;
+}
 *{
   margin: 0;
   padding: 0;
@@ -8,20 +17,26 @@
 }
 body{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
   background: #4A98F7;
+  margin: 0;
+  padding: 0;
 }
 .container{
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 15px;
   padding: 10px;
-  max-width: 1050px;
+  max-width: 1450px;
+  margin: 0 auto;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(100vh - 110px);
 }
 section{
-  background: #fff;
+  background: #05c6ca;
   border-radius: 7px;
 }
 .tools-board{
@@ -137,10 +152,290 @@ section{
   border: 1px solid #4A98F7;
 }
 .drawing-board{
-  flex: 1;
   overflow: hidden;
+  border: 3px solid #4A98F7;
+  border-radius: 7px;
+  background: #fff;
+  height: 555px;
+  width: 1150px;
 }
 .drawing-board canvas{
   width: 100%;
   height: 100%;
+}
+
+/* Navbar Styles */
+.corporate-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100; /* Move behind everything */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.navbar {
+  background: none;
+  border-bottom: 1px solid rgba(74, 152, 247, 0.1);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 60px;
+}
+
+body.dark-mode .navbar {
+  border-bottom: 1px solid rgba(74, 152, 247, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.nav-brand h2 {
+  color: #4A98F7;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #4A98F7;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background: #4A98F7;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 2px solid rgba(74, 152, 247, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+  margin-left: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  border-color: #4A98F7;
+  background: rgba(74, 152, 247, 0.1);
+  transform: scale(1.05);
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle .moon-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background: #1a1a1a;
+}
+
+body.dark-mode .navbar {
+  border-bottom: 1px solid rgba(74, 152, 247, 0.2);
+}
+
+body.dark-mode .nav-brand h2 {
+  color: #4A98F7;
+}
+
+body.dark-mode .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #4A98F7;
+}
+
+body.dark-mode .theme-toggle {
+  color: #e0e0e0;
+  border-color: rgba(74, 152, 247, 0.4);
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: rgba(74, 152, 247, 0.2);
+}
+
+body.dark-mode .theme-toggle .sun-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+body.dark-mode .theme-toggle .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+body.dark-mode .footer {
+  border-top: 1px solid rgba(74, 152, 247, 0.2);
+}
+
+body.dark-mode .footer-content span,
+body.dark-mode .follow-text {
+  color: #b0b0b0;
+}
+
+body.dark-mode .social-icon {
+  background: rgba(74, 152, 247, 0.15);
+  color: #b0b0b0;
+}
+
+/* Footer Styles */
+.footer {
+  background: none;
+  border-top: 1px solid rgba(74, 152, 247, 0.1);
+  padding: 0;
+  height: 50px;
+  margin-top: auto;
+}
+
+body.dark-mode .footer {
+  border-top: 1px solid rgba(74, 152, 247, 0.2);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-content span {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.follow-text {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-right: 5px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(74, 152, 247, 0.1);
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 152, 247, 0.3);
+  border-color: rgba(74, 152, 247, 0.2);
+}
+
+.social-icon.facebook:hover {
+  background: rgba(24, 119, 242, 0.1);
+  color: #1877f2;
+}
+
+.social-icon.github:hover {
+  background: rgba(51, 51, 51, 0.1);
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .nav-brand h2 {
+    font-size: 1.3rem;
+  }
+  
+  .container {
+    flex-direction: column;
+    padding: 5px;
+  }
+  
+  .tools-board {
+    width: 100%;
+    padding: 10px 15px;
+  }
 }
